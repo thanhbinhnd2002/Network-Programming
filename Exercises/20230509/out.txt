@@ -1,2 +1,2 @@
-anhchatserver.png  chatserver.c  out.txt	telnet_server.c
-chatserver	   database.txt  telnet_server
+anhchatserver.png     chatserver    database.txt  telnet_server
+anhtelnet_server.png  chatserver.c  out.txt	  telnet_server.c
