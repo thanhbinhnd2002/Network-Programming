@@ -115,7 +115,7 @@ void send_file_list(int client_socket, const char* folder_path) {
 
     // Iterate over the directory entries and count files
     while ((ent = readdir(dir)) != NULL) {
-        if (ent->d_type == DT_REG) {
+        if (ent->d_type == 8) {
             file_count++;
             strcat(file_list, ent->d_name);
             strcat(file_list, "\r\n");
@@ -127,7 +127,7 @@ void send_file_list(int client_socket, const char* folder_path) {
     // Send the file list to the client
     if (file_count > 0) {
         char response[BUFFER_SIZE];
-        sprintf(response, "OK%d\r\n%s\r\n\r\n", file_count, file_list);
+        sprintf(response, "OK %d\r\n%s\r\n\r\n", file_count, file_list);
         write(client_socket, response, strlen(response));
     } else {
         char *error_msg = "ERRORNofilestodownload\r\n";
